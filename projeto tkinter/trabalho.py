@@ -30,10 +30,10 @@ def deleteselect():
     botaovoltar.pack(side="left", padx=30)
 def validar_data(texto):
         if len(texto) > 10:
-            return False  # Limita o número de caracteres a 10
+            return False  
         for char in texto:
             if char not in "0123456789/":  
-                return False  # Permite apenas números e '/'
+                return False 
         return True
 def validar(texto):
     if texto.isdigit() or texto =="":

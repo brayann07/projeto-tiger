@@ -8,6 +8,16 @@ hotelbanco = mysql.connector.connect(
     database="hoteltiger"
 )
 cursor = hotelbanco.cursor()
+# IMPORTANTE:
+
+#Oi Prof, É o Brayan, to passando pra deixar
+# um comentário porque reutilizei várias janelas,
+#elas não conflitam entre si mas só pra você não achar
+#estranho se tiver um janelaclientes nos funcionarios
+#como deu +1700 linhas, pra agilizar, daí reutilizei varias funções
+#apenas alterando o nome. 
+#obs: perdão se esse comentario conflitar com o código. Obrigado pela atenção!
+
 
 def deleteselect():
 

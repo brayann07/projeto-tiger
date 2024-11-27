@@ -1,0 +1,79 @@
+create database hoteltiger;
+
+create table quarto(
+numquarto int(3) not null,
+andar int(1) not null,
+estado varchar(30) not null,
+primary key(numquarto)
+);
+
+create table cliente(
+idcliente int(5) not null,
+nome varchar(100) not null,
+cpf int(12) not null,
+datacheckin date not null,
+datacheckout date not null,
+telefone int(15) not null,
+email varchar(100) not null,
+estado varchar(30) not null,
+cidade varchar(100) not null,
+codquarto int(3) not null,
+primary key(idcliente),
+foreign key(codquarto) references quarto(numquarto)
+);
+
+create table funcionarios(
+idfuncionarios int(5) not null,
+nome varchar(50) not null,
+cargo varchar(100) not null,
+cargahoraria int(20) not null,
+turno varchar(50) not null,
+email varchar(100) not null,
+estado varchar(30) not null,
+cidade varchar(100) not null,
+telefone int(15) not null,
+cpf int(12) not null,
+primary key(idfuncionarios)
+);
+
+insert into quarto(numquarto,andar,estado) values (101,1,"Livre");
+insert into quarto(numquarto,andar,estado) values (102,1,"Livre");
+insert into quarto(numquarto,andar,estado) values (103,1,"Livre");
+insert into quarto(numquarto,andar,estado) values (104,1,"Livre");
+insert into quarto(numquarto,andar,estado) values (201,2,"Livre");
+insert into quarto(numquarto,andar,estado) values (202,2,"Livre");
+insert into quarto(numquarto,andar,estado) values (203,2,"Livre");
+insert into quarto(numquarto,andar,estado) values (204,2,"Livre");
+insert into quarto(numquarto,andar,estado) values (301,3,"Livre");
+insert into quarto(numquarto,andar,estado) values (302,3,"Livre");
+insert into quarto(numquarto,andar,estado) values (303,3,"Livre");
+insert into quarto(numquarto,andar,estado) values (304,3,"Livre");
+insert into quarto(numquarto,andar,estado) values (401,4,"Livre");
+insert into quarto(numquarto,andar,estado) values (402,4,"Livre");
+insert into quarto(numquarto,andar,estado) values (403,4,"Livre");
+insert into quarto(numquarto,andar,estado) values (404,4,"Livre");
+insert into quarto(numquarto,andar,estado) values (501,5,"Livre");
+insert into quarto(numquarto,andar,estado) values (502,5,"Livre");
+insert into quarto(numquarto,andar,estado) values (503,5,"Livre");
+insert into quarto(numquarto,andar,estado) values (504,5,"Livre");
+
+Um sistema de manipulação de gerenciamento de hotel chamado “Hotel Tiger”.
+
+Descrição: 
+-Sistema de gerenciamento de hotel, podendo gerenciar os seus quartos e os respectivos estados, os clientes usando o hotel e os funcionários que trabalham no local
+-Os quartos são organizados por andar, sendo quatro quartos para cada um dos cinco andares; os quartos circulam por 3 estados, ocupado, livre e limpando, sendo considerado ocupado toda vez que há um cliente utilizando o quarto, podendo voltar ao estado livre apenas após a limpeza; os números dos quartos são compostos por três dígitos, o primeiro digito é o andar, seguido de um 0 e o número do quarto em relação ao andar (ex:101, 102, 204, 301, 403...)
+
+
+-  Banco de dados gerenciando um hotel onde poderá usar operações CRUD (Create, Read, Update, Delete)
+- Uma tabela gerenciando o quarto: podendo cadastrar n° do quarto, andar e estado (ocupado, livre, limpando).
+
+-Uma tabela de clientes: podendo cadastrar idcliente, nome, CPF, data de check-in, data de checkout, telefone, e-mail, estado, cidade e quarto, codquarto.
+
+-Uma tabela dos atendentes: podendo cadastrar idfuncionario, nome, cargo, carga horária, turno, e-mail, endereço, telefone, CPF, estado, cidade.
+
+-Função Create: cadastra novos clientes e novos funcionários.
+-Função Read: permite pesquisar os quartos por número, por andar e por estado, os clientes por nome e quarto, e os funcionários por nome e cargo.
+
+-Função Update: atualiza os estados dos quartos, o quarto e a data de checkout dos clientes, cargo dos funcionários.
+
+-Função Delete: remove clientes e funcionários do banco de dados.
